@@ -1,18 +1,18 @@
 {
-    "name": "vscode-yab-for-eex-leex",
-    "displayName": "YAB for eex/leex",
-    "description": "Yet another beautifer/formatter for leex and eex files.",
-    "version": "1.0.3",
+    "name": "vscode-html-eex-leex-formatter",
+    "displayName": "Formatter for eex/leex",
+    "description": "Formatter for embedded HTML leex and eex files. Uses htmlformatter which is a htmlbeautifier fork that handles Embedded Elixir better.",
+    "version": "1.0.0",
     "icon": "images/logo.png",
     "engines": {
         "vscode": "^1.46.0"
     },
-    "publisher": "ouven",
+    "publisher": "kelostrada",
     "license": "MIT",
-    "bugs": "https://github.com/ouven/vscode-yab-for-eex-leex/issues",
+    "bugs": "https://github.com/kelostrada/vscode-html-eex-leex-formatter/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ouven/vscode-yab-for-eex-leex"
+        "url": "https://github.com/kelostrada/vscode-html-eex-leex-formatter"
     },
     "categories": [
         "Formatters"
@@ -26,7 +26,7 @@
             {
                 "id": "html-eex",
                 "aliases": [
-                    "html-eex (YAB for eex/leex)"
+                    "html-eex (Formatter for eex/leex)"
                 ],
                 "extensions": [
                     ".html.eex",
@@ -36,29 +36,29 @@
         ],
         "configuration": {
             "type": "object",
-            "title": "VSCode YAB for eex/leex configuration",
+            "title": "VSCode Formatter for eex/leex configuration",
             "properties": {
-                "vscode-yab-for-eex-leex.tabStops": {
+                "vscode-html-eex-leex-formatter.tabStops": {
                     "type": "number",
                     "default": 2,
                     "description": "Set number of spaces per indent (default 2)"
                 },
-                "vscode-yab-for-eex-leex.tab": {
+                "vscode-html-eex-leex-formatter.tab": {
                     "type": "boolean",
                     "default": false,
                     "description": "Indent using tabs"
                 },
-                "vscode-yab-for-eex-leex.indentBy": {
+                "vscode-html-eex-leex-formatter.indentBy": {
                     "type": "number",
                     "default": 0,
                     "description": "Indent the output by NUMBER steps (default 0)"
                 },
-                "vscode-yab-for-eex-leex.stopOnErrors": {
+                "vscode-html-eex-leex-formatter.stopOnErrors": {
                     "type": "boolean",
                     "default": false,
                     "description": "Stop when invalid nesting is encountered in the input"
                 },
-                "vscode-yab-for-eex-leex.keepBlankLines": {
+                "vscode-html-eex-leex-formatter.keepBlankLines": {
                     "type": "number",
                     "default": 0,
                     "description": "Set number of consecutive blank lines (default 0)"

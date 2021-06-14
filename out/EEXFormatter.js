@@ -9,7 +9,7 @@ class EEXFormattingEditProvider {
             return [];
         }
         const ext = process.platform === "win32" ? ".bat" : "";
-        const beautifier = `htmlbeautifier${ext}`;
+        const beautifier = `htmlformatter${ext}`;
         const formatFlags = this.cli_options();
         return this.testRun(beautifier, token).then(() => this.runFormatter(beautifier, formatFlags, document, token).then((edits) => edits, (err) => Promise.reject(err)), (err) => Promise.reject(err));
     }
@@ -25,14 +25,14 @@ class EEXFormattingEditProvider {
             p.stderr.on('data', (data) => (stderr += data));
             p.on('error', (err) => {
                 if (err && err.code === 'ENOENT') {
-                    return reject(`couldn't find htmlbeautifier for formatting (ENOENT)`);
+                    return reject(`couldn't find htmlformatter for formatting (ENOENT)`);
                 }
                 else {
-                    return reject(`couldn't run htmlbeautifier '${err.message}'`);
+                    return reject(`couldn't run htmlformatter '${err.message}'`);
                 }
             });
             p.on('close', () => {
-                console.log(`htmlbeautifier is ready to go!`);
+                console.log(`htmlformatter is ready to go!`);
                 return resolve(true);
             });
         });
@@ -69,7 +69,7 @@ class EEXFormattingEditProvider {
         });
     }
     cli_options() {
-        const config = vscode.workspace.getConfiguration("vscode-yab-for-eex-leex");
+        const config = vscode.workspace.getConfiguration("vscode-html-eex-leex-formatter");
         return Object.keys(config).reduce(function (acc, key) {
             switch (key) {
                 case "indentBy":

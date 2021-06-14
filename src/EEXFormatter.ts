@@ -11,7 +11,7 @@ export class EEXFormattingEditProvider implements vscode.DocumentFormattingEditP
             return []
         }
         const ext = process.platform === "win32" ? ".bat" : ""
-        const beautifier = `htmlbeautifier${ext}`
+        const beautifier = `htmlformatter${ext}`
         const formatFlags: string[] = this.cli_options()
 
         return this.testRun(beautifier, token).then(
@@ -41,13 +41,13 @@ export class EEXFormattingEditProvider implements vscode.DocumentFormattingEditP
             p.stderr.on('data', (data) => (stderr += data))
             p.on('error', (err) => {
                 if (err && (<any>err).code === 'ENOENT') {
-                    return reject(`couldn't find htmlbeautifier for formatting (ENOENT)`)
+                    return reject(`couldn't find htmlformatter for formatting (ENOENT)`)
                 } else {
-                    return reject(`couldn't run htmlbeautifier '${err.message}'`)
+                    return reject(`couldn't run htmlformatter '${err.message}'`)
                 }
             })
             p.on('close', () => {
-                console.log(`htmlbeautifier is ready to go!`)
+                console.log(`htmlformatter is ready to go!`)
                 return resolve(true)
             })
         })
@@ -97,7 +97,7 @@ export class EEXFormattingEditProvider implements vscode.DocumentFormattingEditP
     }
 
     private cli_options() {
-        const config = vscode.workspace.getConfiguration("vscode-yab-for-eex-leex")
+        const config = vscode.workspace.getConfiguration("vscode-html-eex-leex-formatter")
         return Object.keys(config).reduce(function (acc, key) {
             switch (key) {
                 case "indentBy":
