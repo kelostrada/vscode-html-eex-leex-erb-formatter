@@ -37,5 +37,5 @@ $ sudo gem install htmlformatter
 | `vscode-html-eex-leex-formatter.tab`            | Indent using tabs                                     | false   |
 | `vscode-html-eex-leex-formatter.indentBy`       | Indent the output by NUMBER steps                     | 0       |
 | `vscode-html-eex-leex-formatter.stopOnErrors`   | Stop when invalid nesting is encountered in the input | false   |
-| `vscode-html-eex-leex-formatter.keepBlankLines` | Set number of consecutive blank lines                 | 0       |
+| `vscode-html-eex-leex-formatter.keepBlankLines` | Set number of consecutive blank lines                 | 1       |
 
